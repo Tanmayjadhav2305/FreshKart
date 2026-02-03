@@ -8,6 +8,11 @@ const SmoothScroll = () => {
     const { pathname } = useLocation();
 
     useEffect(() => {
+        // Disable Lenis on mobile devices for better performance
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+        if (isMobile) return;
+
         const lenis = new Lenis({
             duration: 1.2, // Standard for smooth feel
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
