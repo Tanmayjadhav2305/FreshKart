@@ -20,23 +20,30 @@ const Home = () => {
 
     useEffect(() => {
         const fetchProducts = async () => {
-            setLoading(true);
             try {
                 const { data } = await axios.get('/api/products');
-                let filtered = data;
 
-                if (categoryFilter) {
-                    filtered = filtered.filter(p => p.category === categoryFilter);
+                // Safety check: ensure data is an array before using it
+                if (Array.isArray(data)) {
+                    let filtered = data;
+
+                    if (categoryFilter) {
+                        filtered = filtered.filter(p => p.category === categoryFilter);
+                    }
+
+                    if (searchFilter) {
+                        filtered = filtered.filter(p => p.name.toLowerCase().includes(searchFilter.toLowerCase()));
+                    }
+
+                    setProducts(filtered);
+                } else {
+                    console.error('Expected array from API but got:', typeof data);
+                    setProducts([]);
                 }
-
-                if (searchFilter) {
-                    filtered = filtered.filter(p => p.name.toLowerCase().includes(searchFilter.toLowerCase()));
-                }
-
-                setProducts(filtered);
                 setLoading(false);
             } catch (error) {
                 console.error('Error fetching products:', error);
+                setProducts([]); // Ensure valid state on error
                 setLoading(false);
             }
         };
