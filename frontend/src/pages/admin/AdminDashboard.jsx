@@ -4,22 +4,22 @@ import { Package, ShoppingBag, Users, TrendingUp, DollarSign } from 'lucide-reac
 const AdminDashboard = () => {
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <h1 className="text-3xl font-bold mb-8 text-gray-800">Admin Dashboard</h1>
+            <h1 className="text-3xl font-bold mb-8 text-gray-800 dark:text-gray-100">Admin Dashboard</h1>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                 {/* Products Card */}
-                <Link to="/admin/products" className="group relative bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 overflow-hidden">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full transition-transform group-hover:scale-150 duration-500"></div>
+                <Link to="/admin/products" className="group relative bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 overflow-hidden">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 dark:bg-primary/10 rounded-bl-full transition-transform group-hover:scale-150 duration-500"></div>
                     <div className="flex items-center justify-between relative z-10">
                         <div>
-                            <p className="text-sm font-medium text-gray-500 mb-1">Total Products</p>
-                            <h2 className="text-3xl font-bold text-gray-900">Inventory</h2>
+                            <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Total Products</p>
+                            <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Inventory</h2>
                         </div>
-                        <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
+                        <div className="w-12 h-12 bg-primary/10 dark:bg-primary/20 rounded-xl flex items-center justify-center text-primary">
                             <Package className="h-6 w-6" />
                         </div>
                     </div>
-                    <div className="mt-4 flex items-center text-sm text-gray-500">
+                    <div className="mt-4 flex items-center text-sm text-gray-500 dark:text-gray-400">
                         <span className="text-primary font-medium flex items-center gap-1">Manage <TrendingUp className="h-3 w-3" /></span>
                         <span className="mx-2">•</span>
                         <span>Update stock & prices</span>
@@ -27,36 +27,36 @@ const AdminDashboard = () => {
                 </Link>
 
                 {/* Orders Card */}
-                <Link to="/admin/orders" className="group relative bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 overflow-hidden">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full transition-transform group-hover:scale-150 duration-500"></div>
+                <Link to="/admin/orders" className="group relative bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 overflow-hidden">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 dark:bg-blue-900/20 rounded-bl-full transition-transform group-hover:scale-150 duration-500"></div>
                     <div className="flex items-center justify-between relative z-10">
                         <div>
-                            <p className="text-sm font-medium text-gray-500 mb-1">Total Orders</p>
-                            <h2 className="text-3xl font-bold text-gray-900">Orders</h2>
+                            <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Total Orders</p>
+                            <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Orders</h2>
                         </div>
-                        <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600">
+                        <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-blue-600 dark:text-blue-400">
                             <ShoppingBag className="h-6 w-6" />
                         </div>
                     </div>
-                    <div className="mt-4 flex items-center text-sm text-gray-500">
-                        <span className="text-blue-600 font-medium flex items-center gap-1">View All <TrendingUp className="h-3 w-3" /></span>
+                    <div className="mt-4 flex items-center text-sm text-gray-500 dark:text-gray-400">
+                        <span className="text-blue-600 dark:text-blue-400 font-medium flex items-center gap-1">View All <TrendingUp className="h-3 w-3" /></span>
                         <span className="mx-2">•</span>
                         <span>Process & deliverables</span>
                     </div>
                 </Link>
 
                 {/* Users Card (Coming Soon) */}
-                <div className="group relative bg-gray-50 rounded-2xl p-6 border border-dashed border-gray-200 opacity-70">
+                <div className="group relative bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-6 border border-dashed border-gray-200 dark:border-gray-700 opacity-70">
                     <div className="flex items-center justify-between">
                         <div>
-                            <p className="text-sm font-medium text-gray-500 mb-1">Registered Users</p>
-                            <h2 className="text-3xl font-bold text-gray-400">Users</h2>
+                            <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Registered Users</p>
+                            <h2 className="text-3xl font-bold text-gray-400 dark:text-gray-500">Users</h2>
                         </div>
-                        <div className="w-12 h-12 bg-gray-200 rounded-xl flex items-center justify-center text-gray-400">
+                        <div className="w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-xl flex items-center justify-center text-gray-400 dark:text-gray-500">
                             <Users className="h-6 w-6" />
                         </div>
                     </div>
-                    <div className="mt-4 text-sm text-gray-400">
+                    <div className="mt-4 text-sm text-gray-400 dark:text-gray-500">
                         <span>Customer management coming soon</span>
                     </div>
                 </div>
