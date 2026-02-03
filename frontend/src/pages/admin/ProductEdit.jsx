@@ -96,15 +96,15 @@ const ProductEdit = () => {
 
     return (
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <Link to="/admin/products" className="inline-flex items-center text-gray-500 hover:text-primary mb-6 transition-colors">
+            <Link to="/admin/products" className="inline-flex items-center text-gray-500 dark:text-gray-400 hover:text-primary mb-6 transition-colors">
                 <ArrowLeft className="h-4 w-4 mr-2" /> Back to Products
             </Link>
 
-            <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
-                <div className="p-8 border-b border-gray-100 bg-gray-50/50 flex justify-between items-center">
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-colors duration-300">
+                <div className="p-8 border-b border-gray-100 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-900/50 flex justify-between items-center">
                     <div>
-                        <h1 className="text-2xl font-bold text-gray-800">Edit Product</h1>
-                        <p className="text-sm text-gray-500 mt-1">Update product information and inventory</p>
+                        <h1 className="text-2xl font-bold text-gray-800 dark:text-white">Edit Product</h1>
+                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Update product information and inventory</p>
                     </div>
                     <button onClick={submitHandler} className="bg-primary hover:bg-secondary text-white font-bold py-2.5 px-6 rounded-lg flex items-center shadow-lg shadow-primary/20 transition-all transform hover:-translate-y-0.5">
                         <Save className="h-5 w-5 mr-2" /> Save Changes
@@ -115,10 +115,10 @@ const ProductEdit = () => {
                     {/* Left Column: Basic Info */}
                     <div className="space-y-6">
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">Product Name</label>
+                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Product Name</label>
                             <input
                                 type="text"
-                                className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none"
+                                className="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                                 placeholder="e.g. Fresh Red Tomatoes"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
@@ -126,9 +126,9 @@ const ProductEdit = () => {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">Category</label>
+                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Category</label>
                             <select
-                                className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none bg-white"
+                                className="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                                 value={category}
                                 onChange={(e) => setCategory(e.target.value)}
                             >
@@ -143,9 +143,9 @@ const ProductEdit = () => {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">Description</label>
+                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Description</label>
                             <textarea
-                                className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none h-32 resize-none"
+                                className="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none h-32 resize-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                                 placeholder="Product details..."
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}
@@ -156,8 +156,8 @@ const ProductEdit = () => {
                     {/* Right Column: Image & Variants */}
                     <div className="space-y-6">
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">Product Image</label>
-                            <div className="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center hover:bg-gray-50 transition-colors relative group">
+                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Product Image</label>
+                            <div className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl p-6 text-center hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors relative group">
                                 {image ? (
                                     <div className="relative h-48 w-full mb-4 rounded-lg overflow-hidden">
                                         <img src={image} alt="Preview" className="w-full h-full object-cover" />
@@ -166,7 +166,7 @@ const ProductEdit = () => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="py-8 text-gray-400">
+                                    <div className="py-8 text-gray-400 dark:text-gray-500">
                                         <ImageIcon className="h-12 w-12 mx-auto mb-2" />
                                         <p>No image uploaded</p>
                                     </div>
@@ -177,7 +177,7 @@ const ProductEdit = () => {
                                     className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                                     onChange={uploadFileHandler}
                                 />
-                                <div className="mt-2 text-sm text-gray-500 flex items-center justify-center gap-2">
+                                <div className="mt-2 text-sm text-gray-500 dark:text-gray-400 flex items-center justify-center gap-2">
                                     <Upload className="h-4 w-4" /> {uploading ? 'Uploading...' : 'Upload Image'}
                                 </div>
                             </div>
@@ -185,47 +185,73 @@ const ProductEdit = () => {
 
                         <div>
                             <div className="flex justify-between items-center mb-2">
-                                <label className="block text-sm font-semibold text-gray-700">Pricing & Variants</label>
+                                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">Pricing & Variants</label>
                                 <button type="button" onClick={addItem} className="text-xs text-primary font-bold hover:underline flex items-center">
                                     <Plus className="h-3 w-3 mr-1" /> Add Variant
                                 </button>
                             </div>
-                            <div className="space-y-3 bg-gray-50 p-4 rounded-xl border border-gray-100">
+                            <div className="space-y-4">
                                 {items.map((item, index) => (
-                                    <div key={index} className="flex gap-2 items-center">
-                                        <div className="flex-1">
-                                            <input
-                                                placeholder="Unit (e.g. kg)"
-                                                className="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20"
-                                                value={item.unit}
-                                                onChange={(e) => handleItemChange(index, 'unit', e.target.value)}
-                                            />
+                                    <div key={index} className="bg-gray-50 dark:bg-gray-900/50 p-4 rounded-xl border border-gray-100 dark:border-gray-700 relative group">
+
+                                        <div className="grid grid-cols-2 gap-4 mb-2">
+                                            {/* Unit */}
+                                            <div className="col-span-2 sm:col-span-1">
+                                                <label className="text-xs font-semibold text-gray-500 uppercase mb-1 block">Unit</label>
+                                                <input
+                                                    placeholder="e.g. 1 kg"
+                                                    className="w-full px-4 py-3 text-base border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary/20 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                                                    value={item.unit}
+                                                    onChange={(e) => handleItemChange(index, 'unit', e.target.value)}
+                                                />
+                                            </div>
+
+                                            {/* Price */}
+                                            <div className="col-span-1">
+                                                <label className="text-xs font-semibold text-gray-500 uppercase mb-1 block">Price</label>
+                                                <div className="relative">
+                                                    <span className="absolute left-4 top-3.5 text-gray-400 font-medium">₹</span>
+                                                    <input
+                                                        placeholder="0.00"
+                                                        type="number"
+                                                        className="w-full pl-8 pr-4 py-3 text-base border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary/20 bg-white dark:bg-gray-700 text-gray-900 dark:text-white font-medium"
+                                                        value={item.price}
+                                                        onChange={(e) => handleItemChange(index, 'price', e.target.value)}
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            {/* Stock */}
+                                            <div className="col-span-1">
+                                                <label className="text-xs font-semibold text-gray-500 uppercase mb-1 block">Stock</label>
+                                                <input
+                                                    placeholder="Qty"
+                                                    type="number"
+                                                    className="w-full px-4 py-3 text-base border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary/20 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                                                    value={item.stock}
+                                                    onChange={(e) => handleItemChange(index, 'stock', Number(e.target.value))}
+                                                />
+                                            </div>
                                         </div>
-                                        <div className="flex-1 relative">
-                                            <span className="absolute left-3 top-2 text-gray-400 text-xs">₹</span>
-                                            <input
-                                                placeholder="Price"
-                                                type="number"
-                                                className="w-full pl-6 pr-3 py-2 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20"
-                                                value={item.price}
-                                                onChange={(e) => handleItemChange(index, 'price', e.target.value)}
-                                            />
-                                        </div>
-                                        <div className="flex-1">
-                                            <input
-                                                placeholder="Stock"
-                                                type="number"
-                                                className="w-full px-3 py-2 text-sm border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20"
-                                                value={item.stock}
-                                                onChange={(e) => handleItemChange(index, 'stock', Number(e.target.value))}
-                                            />
-                                        </div>
-                                        <button type="button" onClick={() => removeItem(index)} className="p-2 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors">
+
+                                        <button
+                                            type="button"
+                                            onClick={() => removeItem(index)}
+                                            className="absolute -top-2 -right-2 bg-white dark:bg-gray-800 text-gray-400 hover:text-red-500 p-1.5 rounded-full shadow-md border border-gray-100 dark:border-gray-700 transition-colors"
+                                            title="Remove Variant"
+                                        >
                                             <Trash2 className="h-4 w-4" />
                                         </button>
                                     </div>
                                 ))}
-                                {items.length === 0 && <p className="text-sm text-red-500 italic">Please add at least one pricing variant.</p>}
+                                {items.length === 0 && (
+                                    <div className="text-center py-6 bg-gray-50 dark:bg-gray-900/30 rounded-xl border border-dashed border-gray-300 dark:border-gray-700">
+                                        <p className="text-gray-500 text-sm">No price variants added yet.</p>
+                                        <button type="button" onClick={addItem} className="text-primary font-bold text-sm mt-2 hover:underline">
+                                            + Add First Variant
+                                        </button>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>
