@@ -7,7 +7,8 @@ import useCartStore from '../store/useCartStore';
 import useWishlistStore from '../store/useWishlistStore';
 import Hero from '../components/Hero';
 import CategorySlider from '../components/CategorySlider';
-import { Star, ShoppingCart } from 'lucide-react';
+import { Filter, Search, ShoppingCart, Star } from 'lucide-react';
+import ProductSkeleton from '../components/ProductSkeleton';
 
 const Home = () => {
     const [products, setProducts] = useState([]);
@@ -65,13 +66,15 @@ const Home = () => {
         }
     }, { scope: containerRef, dependencies: [products] });
 
-    if (loading) return (
-        <div className="flex justify-center items-center h-screen">
-            <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-primary"></div>
-        </div>
-    );
-
-    return (
+    if (loading) {
+        return (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mt-12">
+                {[...Array(10)].map((_, index) => (
+                    <ProductSkeleton key={index} />
+                ))}
+            </div>
+        );
+    } return (
         <div className="pb-20">
             {!categoryFilter && !searchFilter && <Hero />}
             {!searchFilter && <CategorySlider />}
