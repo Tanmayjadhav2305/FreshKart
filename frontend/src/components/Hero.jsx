@@ -11,7 +11,7 @@ const banners = [
         subtitle: "Harvested daily and delivered to your doorstep within 24 hours.",
         cta: "Shop Now",
         link: "/?category=Vegetables",
-        image: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=2000&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?q=80&w=2560&auto=format&fit=crop", // Stunning mixed veggies
         theme: "from-emerald-950 via-emerald-800/90 to-transparent"
     },
     {
@@ -20,7 +20,7 @@ const banners = [
         subtitle: "Experience the sweetness of nature with our hand-picked selection.",
         cta: "Explore Fruits",
         link: "/?category=Fruits",
-        image: "https://images.unsplash.com/photo-1619566636858-adf3ef46400b?q=80&w=2000&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1610832958506-aa56368176cf?q=80&w=2560&auto=format&fit=crop", // Vibrant fruits
         theme: "from-orange-950 via-amber-700/90 to-transparent"
     },
     {
@@ -29,7 +29,7 @@ const banners = [
         subtitle: "Pure, wholesome milk and free-range eggs for your family.",
         cta: "View Dairy",
         link: "/?category=Dairy",
-        image: "https://images.unsplash.com/photo-1628088062854-d1870b4553da?q=80&w=2000&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?q=80&w=2560&auto=format&fit=crop", // Dairy aesthetics
         theme: "from-blue-950 via-indigo-800/90 to-transparent"
     }
 ];
@@ -41,7 +41,7 @@ const Hero = () => {
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrent((prev) => (prev + 1) % banners.length);
-        }, 6000);
+        }, 5000);
         return () => clearInterval(timer);
     }, []);
 
@@ -53,7 +53,7 @@ const Hero = () => {
         );
         gsap.fromTo(".hero-image",
             { scale: 1.15 },
-            { scale: 1, duration: 6, ease: "power2.out" }
+            { scale: 1, duration: 5, ease: "power1.out" }
         );
     }, { scope: containerRef, dependencies: [current] });
 
