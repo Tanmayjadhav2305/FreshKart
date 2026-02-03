@@ -14,8 +14,8 @@ const MobileNavbar = () => {
     ];
 
     return (
-        <div className="md:hidden fixed bottom-0 left-0 w-full bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 shadow-[0_-5px_10px_rgba(0,0,0,0.05)] z-50 pb-safe">
-            <div className="flex justify-around items-center px-2 py-3">
+        <div className="md:hidden fixed bottom-4 left-4 right-4 bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg border border-white/20 dark:border-gray-700/50 shadow-2xl rounded-2xl z-50 pb-safe">
+            <div className="flex justify-between items-center px-6 py-3">
                 {navItems.map((item) => {
                     const isActive = pathname === item.path || (item.path !== '/' && pathname.startsWith(item.path));
 
@@ -23,21 +23,24 @@ const MobileNavbar = () => {
                         <Link
                             key={item.name}
                             to={item.path}
-                            className={`flex flex-col items-center justify-center w-full space-y-1 relative group ${isActive ? 'text-primary' : 'text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300'
+                            className={`flex flex-col items-center justify-center space-y-1 relative group transition-all duration-300 ${isActive ? 'text-primary scale-110' : 'text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300'
                                 }`}
                         >
-                            <div className={`p-1 rounded-xl transition-all duration-300 ${isActive ? 'bg-primary/10' : ''}`}>
+                            <div className={`relative p-2 rounded-xl transition-all duration-300 ${isActive ? 'bg-primary/10 shadow-inner' : ''}`}>
                                 <item.icon
-                                    className={`h-6 w-6 transition-all duration-300 ${isActive ? 'fill-current' : 'stroke-current'}`}
+                                    className={`h-5 w-5 transition-all duration-300 ${isActive ? 'fill-primary text-primary' : 'stroke-current'}`}
                                     strokeWidth={isActive ? 2.5 : 2}
                                 />
+                                {item.badge > 0 && (
+                                    <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[9px] font-bold h-3.5 w-3.5 flex items-center justify-center rounded-full shadow-sm ring-2 ring-white dark:ring-gray-900">
+                                        {item.badge}
+                                    </span>
+                                )}
                             </div>
-                            <span className="text-[10px] font-medium tracking-wide">{item.name}</span>
 
-                            {item.badge > 0 && (
-                                <span className="absolute top-0 right-1/4 -mt-1 -mr-1 bg-red-500 text-white text-[10px] font-bold h-4 w-4 flex items-center justify-center rounded-full animate-bounce-short">
-                                    {item.badge}
-                                </span>
+                            {/* Active Indicator Dot */}
+                            {isActive && (
+                                <span className="absolute -bottom-2 w-1 h-1 bg-primary rounded-full"></span>
                             )}
                         </Link>
                     );
