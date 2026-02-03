@@ -92,7 +92,7 @@ const Home = () => {
                         <Link to="/" className="mt-4 inline-block text-primary font-medium hover:underline">Browse all products</Link>
                     </div>
                 ) : (
-                    <div ref={containerRef} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                    <div ref={containerRef} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
                         {products.map((product) => {
                             const isLiked = isInWishlist(product._id);
                             return (

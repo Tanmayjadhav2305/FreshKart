@@ -89,26 +89,26 @@ const Hero = () => {
                         <div className="max-w-2xl">
 
                             {/* Badge */}
-                            <div className="hero-text-reveal inline-flex items-center gap-2 bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-4 py-1.5 text-white mb-6">
-                                <Leaf className="h-4 w-4 fill-green-400 text-green-400" />
-                                <span className="text-sm font-bold tracking-wide uppercase">100% Organic & Fresh</span>
+                            <div className="hero-text-reveal inline-flex items-center gap-2 bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-3 py-1.5 sm:px-4 text-white mb-4 sm:mb-6">
+                                <Leaf className="h-3 w-3 sm:h-4 sm:w-4 fill-green-400 text-green-400" />
+                                <span className="text-xs sm:text-sm font-bold tracking-wide uppercase">100% Organic & Fresh</span>
                             </div>
 
-                            <h1 className="hero-text-reveal text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
+                            <h1 className="hero-text-reveal text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight drop-shadow-lg">
                                 {banner.title}
                             </h1>
-                            <p className="hero-text-reveal text-lg md:text-xl text-gray-100 mb-8 max-w-lg leading-relaxed drop-shadow-md">
+                            <p className="hero-text-reveal text-base sm:text-lg md:text-xl text-gray-100 mb-6 sm:mb-8 max-w-lg leading-relaxed drop-shadow-md">
                                 {banner.subtitle}
                             </p>
 
                             <div className="hero-text-reveal flex flex-col sm:flex-row gap-4">
                                 <Link
                                     to={banner.link}
-                                    className="inline-flex justify-center items-center gap-3 bg-white text-gray-900 font-bold py-4 px-10 rounded-full hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl"
+                                    className="inline-flex justify-center items-center gap-2 sm:gap-3 bg-white text-gray-900 font-bold py-3 px-8 sm:py-4 sm:px-10 rounded-full hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl text-sm sm:text-base"
                                 >
-                                    {banner.cta} <ArrowRight className="h-5 w-5" />
+                                    {banner.cta} <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
                                 </Link>
-                                <div className="flex items-center gap-4 px-6 py-4 bg-white/10 backdrop-blur-sm rounded-full border border-white/10 text-white">
+                                <div className="hidden sm:flex items-center gap-4 px-6 py-4 bg-white/10 backdrop-blur-sm rounded-full border border-white/10 text-white">
                                     <div className="flex">
                                         {[1, 2, 3, 4, 5].map(i => <Star key={i} className="h-4 w-4 text-yellow-400 fill-yellow-400" />)}
                                     </div>
